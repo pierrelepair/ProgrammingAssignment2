@@ -1,5 +1,9 @@
-## Create a special matrix object
-## with ability to cache its inverted result
+## Couple of functions to create a special matrix object and invert that object
+
+
+## makeCacheMatrix creates a special matrix, i.e. a list of funtion to
+## set the value of the matrix, get the value of the matrix, set the value of
+## the matrix's inverse and get the value of the matrix's inverse
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -17,8 +21,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Invert a special matrix object by first checking if inverted matrix was 
-## previously cached
+## cacheSolve calculates the inverse of a makeCacheMatrix object.
+## it first checks to see if the inverse has already been calculated. 
+## If so, it gets the inverse from the cache and skips the computation.
+## Otherwise, it calculates the inverse of the matrix and sets the value
+## in the cache via the setinvmatrix function.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
